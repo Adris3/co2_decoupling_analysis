@@ -6,6 +6,7 @@ BASE_DIR = Path(__file__).resolve().parent
 RAW_PATH = BASE_DIR / "data" / "raw" / "owid_co2.csv"
 CLEAN_PATH = BASE_DIR / "data" / "clean" / "emissions_clean.csv"
 FIGURES_DIR = BASE_DIR / "outputs" / "figures"
+CHANGES_PATH = BASE_DIR / "data" / "clean" / "decoupling_changes.csv"
 
 # Analysis settings
 MIN_YEAR = 1990 # Remove any data before this year
