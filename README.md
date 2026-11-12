@@ -3,7 +3,7 @@
 This project explores whether countries experienced economic growth while reducing their annual CO₂ emissions. It uses country-level data from Our World in Data (OWID).
 
    ## Interactive Dashboard
-   [View the live dashboard on Tableau Public](https://public.tableau.com/app/profile/advait.risbud/viz/Book1_17945204026180/Dashboard1?publish=yes)
+   [View the live dashboard on Tableau Public](https://public.tableau.com/app/profile/advait.risbud/viz/CO2EmissionvsEconomicGrowth/CountriesDashboard?publish=yes)
 
    ![Dashboard preview](outputs/figures/co2_decoupling_analysis_dashboard.png)
 
