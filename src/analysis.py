@@ -21,7 +21,7 @@ def compute_changes(df: pd.DataFrame, base_year: int = BASE_YEAR, end_year: int 
             (wide[(metric, end_year)] - wide[(metric, base_year)]) / wide[(metric, base_year)] * 100
         )
 
-        return changes.reset_index()
+    return changes.reset_index()
 
 def label_decoupling(changes: pd.DataFrame) -> pd.DataFrame:
     # Identify countries where GDP rose while CO2 fell
