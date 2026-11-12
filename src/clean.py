@@ -46,3 +46,21 @@ def validate(df: pd.DataFrame) -> None:
     assert (df["gdp"] > 0).all(), "Non-positive GDP found"
     assert (df["population"] > 0).all(), "Non-positive population found"
     assert (df["co2"] >= 0).all(), "Negative CO2 found"
+
+def run_cleaning() -> pd.DataFrame:
+
+    df = load_raw()
+    df = drop_aggregates(df)
+    df = filter_years(df)
+    df = select_columns(df)
+    df = handle_missing(df)
+    df = add_features(df)
+    validate(df)
+
+    CLEAN_PATH.parent.mkdir(parents=True, exist_ok=True)
+    df.to_csv(CLEAN_PATH, index=False)
+    log.info(f"Saved {len(df):,} rows, {df["iso_code"].nunique()} countries to {CLEAN_PATH}")
+    return df
+
+if __name__ == "__main__":
+    run_cleaning()
