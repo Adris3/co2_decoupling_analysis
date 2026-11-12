@@ -51,3 +51,8 @@ def run_ttest(changes: pd.DataFrame) -> dict:
         "p_value": p_value
     }
 
+if __name__ == "__main__":
+    df = load_clean()
+    changes = label_decoupling(compute_changes(df))
+    print(top_decouplers(changes))
+    print(run_ttest(changes))
