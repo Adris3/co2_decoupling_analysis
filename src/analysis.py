@@ -22,3 +22,9 @@ def compute_changes(df: pd.DataFrame, base_year: int = BASE_YEAR, end_year: int 
         )
 
         return changes.reset_index()
+
+def label_decoupling(changes: pd.DataFrame) -> pd.DataFrame:
+    # Identify countries where GDP rose while CO2 fell
+    changes = changes.copy()
+    changes["decoupled"] = (changes["gdp_pct_change"] > 0) & (changes["co2_pct_change"] < 0)
+    return changes
