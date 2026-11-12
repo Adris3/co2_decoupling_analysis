@@ -19,3 +19,9 @@ def drop_aggregates(df: pd.DataFrame) -> pd.DataFrame:
     df = df[df["iso_code"].notna()]
     log.info(f"Dropped {before - len(df):,} non-country rows")
     return df
+
+def filter_years(df: pd.DaraFrame, min_year: int = MIN_YEAR) -> pd.DataFrame:
+    before = len(df)
+    df = df[df["year"] >= min_year]
+    log.info(f"Dropped {before - len(df):,} rows before {min_year}")
+    return df
