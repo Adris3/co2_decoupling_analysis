@@ -1,1 +1,17 @@
-./data/raw
+# --- Data ---
+data/raw/
+data/clean/
+
+# --- Virtual environment ---
+.venv/
+venv/
+env/
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# --- Jupyter ---
+.ipynb_checkpoints/
