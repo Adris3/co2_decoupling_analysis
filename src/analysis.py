@@ -29,7 +29,7 @@ def label_decoupling(changes: pd.DataFrame) -> pd.DataFrame:
     changes["decoupled"] = (changes["gdp_pct_change"] > 0) & (changes["co2_pct_change"] < 0)
     return changes
 
-def top_decouplers(changes: pd.DataFrame) -> pd.DataFrame:
+def top_decouplers(changes: pd.DataFrame, n: int = 10) -> pd.DataFrame:
     return (
         changes[changes["decoupled"]]
         .sort_values("co2_pct_change")
@@ -40,7 +40,7 @@ def top_decouplers(changes: pd.DataFrame) -> pd.DataFrame:
 def run_ttest(changes: pd.DataFrame) -> dict:
 
     a = changes.loc[changes["decoupled"], "co2_per_gdp_pct_change"]
-    a = changes.loc[~changes["decoupled"], "co2_per_gdp_pct_change"]
+    b = changes.loc[~changes["decoupled"], "co2_per_gdp_pct_change"]
     t_stat, p_value = stats.ttest_ind(a, b, equal_var=False)
     return {
         "n_decoupled": len(a),
