@@ -37,3 +37,17 @@ def top_decouplers(changes: pd.DataFrame) -> pd.DataFrame:
         [["country", "gdp_pct_change", "co2_pct_change"]]
     )
 
+def run_ttest(changes: pd.DataFrame) -> dict:
+
+    a = changes.loc[changes["decoupled"], "co2_per_gdp_pct_change"]
+    a = changes.loc[~changes["decoupled"], "co2_per_gdp_pct_change"]
+    t_stat, p_value = stats.ttest_ind(a, b, equal_var=False)
+    return {
+        "n_decoupled": len(a),
+        "n_other": len(b),
+        "mean_decoupled": a.mean(),
+        "mean_other": b.mean(),
+        "t_stat": t_stat,
+        "p_value": p_value
+    }
+
