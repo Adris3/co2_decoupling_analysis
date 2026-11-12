@@ -28,3 +28,12 @@ def label_decoupling(changes: pd.DataFrame) -> pd.DataFrame:
     changes = changes.copy()
     changes["decoupled"] = (changes["gdp_pct_change"] > 0) & (changes["co2_pct_change"] < 0)
     return changes
+
+def top_decouplers(changes: pd.DataFrame) -> pd.DataFrame:
+    return (
+        changes[changes["decoupled"]]
+        .sort_values("co2_pct_change")
+        .head(n)
+        [["country", "gdp_pct_change", "co2_pct_change"]]
+    )
+
