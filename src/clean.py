@@ -34,3 +34,15 @@ def handle_missing(df: pd.DataFrame) -> pd.DaraFrame:
     df = df.dropna(subset=["population", "gdp", "co2"])
     log.info(f"Dropped {before - len(df):,} rows missing popularion, gdp, or co2")
     return df
+
+def add_features(df: pd.DataFrame) -> None:
+    df = df.copy()
+    df["gdp_per_capita"] = df["gdp"] / df["population"]
+    df["co2_per_gdp"] = df["co2"] / df["gdp"]
+    return df
+
+def validate(df: pd.DataFrame) -> None:
+    assert not df.duplicated(subset=["iso_code", "year"]).any(), "duplicate country-year rows"
+    assert (df["gdp"] > 0).all(), "Non-positive GDP found"
+    assert (df["population"] > 0).all(), "Non-positive population found"
+    assert (df["co2"] >= 0).all(), "Negative CO2 found"
