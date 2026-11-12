@@ -10,7 +10,7 @@ log = logging.getLogger(__name__)
 
 def load_raw(path=RAW_PATH) -> pd.DataFrame:
     df = pd.read_csv(path)
-    log.info(f"Loaded raw data: {df.shape[0:,]} rows, {df.shape[1]} columns")
+    log.info(f"Loaded raw data: {df.shape[0]:,} rows, {df.shape[1]} columns")
     return df
 
 def drop_aggregates(df: pd.DataFrame) -> pd.DataFrame:
