@@ -19,7 +19,7 @@ def drop_aggregates(df: pd.DataFrame) -> pd.DataFrame:
     log.info(f"Dropped {before - len(df):,} non-country rows")
     return df
 
-def filter_years(df: pd.DaraFrame, min_year: int = MIN_YEAR) -> pd.DataFrame:
+def filter_years(df: pd.DataFrame, min_year: int = MIN_YEAR) -> pd.DataFrame:
     before = len(df)
     df = df[df["year"] >= min_year]
     log.info(f"Dropped {before - len(df):,} rows before {min_year}")
@@ -28,7 +28,7 @@ def filter_years(df: pd.DaraFrame, min_year: int = MIN_YEAR) -> pd.DataFrame:
 def select_columns(df: pd.DataFrame) -> pd.DataFrame:
     return df[KEEP_COLUMNS].copy()
 
-def handle_missing(df: pd.DataFrame) -> pd.DaraFrame:
+def handle_missing(df: pd.DataFrame) -> pd.DataFrame:
     before = len(df)
     df = df.dropna(subset=["population", "gdp", "co2"])
     log.info(f"Dropped {before - len(df):,} rows missing popularion, gdp, or co2")
