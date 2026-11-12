@@ -25,3 +25,12 @@ def filter_years(df: pd.DaraFrame, min_year: int = MIN_YEAR) -> pd.DataFrame:
     df = df[df["year"] >= min_year]
     log.info(f"Dropped {before - len(df):,} rows before {min_year}")
     return df
+
+def select_columns(df: pd.DataFrame) -> pd.DataFrame:
+    return df[KEEP_COLUMNS].copy()
+
+def handle_missing(df: pd.DataFrame) -> pd.DaraFrame:
+    before = len(df)
+    df = df.dropna(subset=["population", "gdp", "co2"])
+    log.info(f"Dropped {before - len(df):,} rows missing popularion, gdp, or co2")
+    return df
