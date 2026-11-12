@@ -3,8 +3,7 @@ import pandas as pd
 from config import (RAW_PATH,
                     CLEAN_PATH,
                     MIN_YEAR,
-                    KEEP_COLUMNS,
-                    AGGREGATE_PREFIX)
+                    KEEP_COLUMNS)
 
 logging.basicConfig(level=logging.INFO, format="%(message)s")
 log = logging.getLogger(__name__)
