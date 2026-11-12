@@ -5,7 +5,7 @@ from scipy import stats
 from config import CLEAN_PATH, BASE_YEAR, END_YEAR
 
 def load_clean(path=CLEAN_PATH) -> pd.DataFrame:
-    return pd.read_csv()
+    return pd.read_csv(path)
 
 def compute_changes(df: pd.DataFrame, base_year: int = BASE_YEAR, end_year: int = END_YEAR) -> pd.DataFrame:
     # Ensure that the countries have complete data from base_year to end_year
