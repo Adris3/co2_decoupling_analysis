@@ -2,6 +2,11 @@
 
 This project explores whether countries experienced economic growth while reducing their annual CO₂ emissions. It uses country-level data from Our World in Data (OWID).
 
+   ## Interactive Dashboard
+   [View the live dashboard on Tableau Public](https://public.tableau.com/app/profile/advait.risbud/viz/Book1_17945204026180/Dashboard1?publish=yes)
+
+   ![Dashboard preview](outputs/figures/co2_decoupling_analysis_dashboard.png)
+
 ## Research question
 
 Between 2005 and 2022, which countries had rising GDP and falling total CO₂ emissions? How did CO₂ emissions per unit of GDP change in those countries?
